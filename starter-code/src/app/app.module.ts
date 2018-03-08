@@ -5,14 +5,31 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
+
+// Route importation
+import { Routes, RouterModule } from '@angular/router';
+import { MyHomeComponent} from './my-home/my-home.component';
+import { MyMovieComponent } from './my-movie/my-movie.component';
+
+// Routes view
+const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'movies', component: MyHomeComponent },
+  { path: 'movie/:id', component: MyMovieComponent },  
+];
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MyHomeComponent,
+    MyMovieComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
