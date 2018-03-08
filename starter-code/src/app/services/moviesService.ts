@@ -61,7 +61,6 @@ export class MoviesService {
 
   getMovie(id) {
    console.log(id);
-  return this.movies.filter(movie => movie.id === id);
-  }
+  return this.movies.navigate(['movies', id]);// will check it later
 
 }
